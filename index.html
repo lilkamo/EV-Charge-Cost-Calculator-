@@ -34,7 +34,6 @@ min-height: 100vh;
 overflow-x: hidden;
 }
 
-/* Animated grid floor + scanlines + radial glow */
 body::before {
 content: “”;
 position: fixed;
@@ -74,7 +73,6 @@ padding: 28px 20px 60px;
 position: relative;
 }
 
-/* Header */
 .header {
 text-align: center;
 margin-bottom: 32px;
@@ -104,7 +102,7 @@ position: relative;
 }
 
 .title::after {
-content: “⚡”;
+content: “\26A1”;
 position: absolute;
 top: -8px;
 right: 20%;
@@ -128,7 +126,6 @@ margin-top: 6px;
 text-transform: uppercase;
 }
 
-/* Card */
 .card {
 background: rgba(22, 4, 49, 0.6);
 border: 1px solid rgba(181, 55, 242, 0.3);
@@ -200,17 +197,10 @@ background-position: right 16px center;
 padding-right: 40px;
 }
 
-/* Two-col split */
 .row {
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 12px;
-}
-
-/* Range slider */
-.range-wrap {
-position: relative;
-margin-top: 4px;
 }
 
 .range-vals {
@@ -279,7 +269,6 @@ color: var(–muted);
 text-transform: uppercase;
 }
 
-/* Result panel */
 .result {
 margin-top: 24px;
 border: 1px solid var(–neon-pink);
@@ -303,7 +292,7 @@ letter-spacing: 0.2em;
 }
 
 .result::after {
-content: “▮”;
+content: “\25AE”;
 position: absolute;
 top: 8px;
 right: 12px;
@@ -357,7 +346,6 @@ text-transform: uppercase;
 margin-top: 2px;
 }
 
-/* Footer marquee */
 .footer {
 margin-top: 28px;
 text-align: center;
@@ -369,7 +357,6 @@ letter-spacing: 0.4em;
 
 .footer span { color: var(–neon-pink); }
 
-/* Reveal anim on load */
 .card, .header { animation: rise 0.7s ease-out backwards; }
 .header { animation-delay: 0s; }
 .card { animation-delay: 0.15s; }
@@ -379,7 +366,6 @@ from { opacity: 0; transform: translateY(20px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* Pulse on cost change */
 .cost.bump { animation: bump 0.3s ease-out; }
 @keyframes bump {
 0% { transform: scale(1); }
@@ -387,7 +373,6 @@ to { opacity: 1; transform: translateY(0); }
 100% { transform: scale(1); }
 }
 
-/* Remove number spinners */
 input[type=“number”]::-webkit-inner-spin-button,
 input[type=“number”]::-webkit-outer-spin-button {
 -webkit-appearance: none;
@@ -400,7 +385,7 @@ input[type=“number”] { -moz-appearance: textfield; }
 <body>
   <div class="wrap">
     <header class="header">
-      <div class="logo">⌁ V O L T ⌁</div>
+      <div class="logo">&#9089; V O L T &#9089;</div>
       <h1 class="title">CHARGE.COST</h1>
       <div class="subtitle">EV ENERGY CALCULATOR</div>
     </header>
@@ -408,36 +393,36 @@ input[type=“number”] { -moz-appearance: textfield; }
 ```
 <main class="card">
   <div class="field">
-    <label><span class="icon">⚡</span>Charger Speed</label>
+    <label><span class="icon">&#9889;</span>Charger Speed</label>
     <select id="speed">
-      <option value="2.3">2.3 kW — Granny Cable (3-pin)</option>
-      <option value="3">3 kW — Slow Home</option>
-      <option value="7" selected>7 kW — Home Wallbox</option>
-      <option value="11">11 kW — 3-Phase Home</option>
-      <option value="22">22 kW — Fast AC</option>
-      <option value="50">50 kW — Rapid DC</option>
-      <option value="100">100 kW — Ultra-Rapid</option>
-      <option value="150">150 kW — Ultra-Rapid+</option>
-      <option value="350">350 kW — Hyper Charger</option>
+      <option value="2.3">2.3 kW - Granny Cable (3-pin)</option>
+      <option value="3">3 kW - Slow Home</option>
+      <option value="7" selected>7 kW - Home Wallbox</option>
+      <option value="11">11 kW - 3-Phase Home</option>
+      <option value="22">22 kW - Fast AC</option>
+      <option value="50">50 kW - Rapid DC</option>
+      <option value="100">100 kW - Ultra-Rapid</option>
+      <option value="150">150 kW - Ultra-Rapid+</option>
+      <option value="350">350 kW - Hyper Charger</option>
     </select>
   </div>
 
   <div class="row">
     <div class="field">
-      <label><span class="icon">£</span>Pence / kWh</label>
+      <label><span class="icon">&pound;</span>Pence / kWh</label>
       <input type="number" id="rate" value="28" min="0" step="0.1" inputmode="decimal">
     </div>
     <div class="field">
-      <label><span class="icon">🔋</span>Battery kWh</label>
+      <label><span class="icon">&#128267;</span>Battery kWh</label>
       <input type="number" id="capacity" value="60" min="1" step="1" inputmode="decimal">
     </div>
   </div>
 
   <div class="field">
-    <label><span class="icon">▰</span>State of Charge</label>
+    <label><span class="icon">&#9648;</span>State of Charge</label>
     <div class="range-vals">
       <span class="from"><span id="startVal">20</span>%</span>
-      <span class="arrow">━━▶</span>
+      <span class="arrow">&#9473;&#9473;&#9654;</span>
       <span class="to"><span id="endVal">80</span>%</span>
     </div>
 
@@ -457,7 +442,7 @@ input[type=“number”] { -moz-appearance: textfield; }
   </div>
 
   <div class="result">
-    <div class="cost" id="cost"><span class="pound">£</span>0.00</div>
+    <div class="cost" id="cost"><span class="pound">&pound;</span>0.00</div>
 
     <div class="meta">
       <div class="meta-item">
@@ -482,28 +467,26 @@ input[type=“number”] { -moz-appearance: textfield; }
   </div>
 
 <script>
-  const $ = (id) => document.getElementById(id);
-  const speed = $('speed'), rate = $('rate'), cap = $('capacity');
-  const start = $('start'), end = $('end');
-  const startVal = $('startVal'), endVal = $('endVal');
-  const cost = $('cost'), energy = $('energy'), time = $('time'), perKwh = $('perKwh');
+  var $ = function(id) { return document.getElementById(id); };
+  var speed = $('speed'), rate = $('rate'), cap = $('capacity');
+  var start = $('start'), end = $('end');
+  var startVal = $('startVal'), endVal = $('endVal');
+  var cost = $('cost'), energy = $('energy'), time = $('time'), perKwh = $('perKwh');
 
   function formatTime(hours) {
     if (!isFinite(hours) || hours <= 0) return '0m';
-    const totalMin = Math.round(hours * 60);
+    var totalMin = Math.round(hours * 60);
     if (totalMin < 60) return totalMin + 'm';
-    const h = Math.floor(totalMin / 60);
-    const m = totalMin % 60;
+    var h = Math.floor(totalMin / 60);
+    var m = totalMin % 60;
     return m === 0 ? h + 'h' : h + 'h ' + m + 'm';
   }
 
   function calc() {
-    let s = parseInt(start.value, 10);
-    let e = parseInt(end.value, 10);
+    var s = parseInt(start.value, 10);
+    var e = parseInt(end.value, 10);
 
-    // Keep end >= start (fix on the fly)
     if (e < s) {
-      // Push the one that wasn't last touched. Simpler: just clamp end up.
       e = s;
       end.value = s;
     }
@@ -511,45 +494,40 @@ input[type=“number”] { -moz-appearance: textfield; }
     startVal.textContent = s;
     endVal.textContent = e;
 
-    const capacity = parseFloat(cap.value) || 0;
-    const pence = parseFloat(rate.value) || 0;
-    const kw = parseFloat(speed.value) || 0;
+    var capacity = parseFloat(cap.value) || 0;
+    var pence = parseFloat(rate.value) || 0;
+    var kw = parseFloat(speed.value) || 0;
 
-    const kwhAdded = capacity * (e - s) / 100;
-    const totalPence = kwhAdded * pence;
-    const totalPounds = totalPence / 100;
+    var kwhAdded = capacity * (e - s) / 100;
+    var totalPence = kwhAdded * pence;
+    var totalPounds = totalPence / 100;
 
-    // AC charging is typically ~90% efficient, DC fast charging ~93-95%.
-    // We'll use a simple linear estimate (real world tapers above 80%).
-    const hours = kw > 0 ? kwhAdded / kw : 0;
+    var hours = kw > 0 ? kwhAdded / kw : 0;
 
-    cost.innerHTML = '<span class="pound">£</span>' + totalPounds.toFixed(2);
+    cost.innerHTML = '<span class="pound">&pound;</span>' + totalPounds.toFixed(2);
     energy.textContent = kwhAdded.toFixed(1);
     time.textContent = formatTime(hours);
     perKwh.textContent = pence.toFixed(1) + 'p';
 
-    // Bump animation
     cost.classList.remove('bump');
     void cost.offsetWidth;
     cost.classList.add('bump');
   }
 
-  // Make end track start so end can't go below start
-  start.addEventListener('input', () => {
+  start.addEventListener('input', function() {
     if (parseInt(start.value, 10) > parseInt(end.value, 10)) {
       end.value = start.value;
     }
     calc();
   });
-  end.addEventListener('input', () => {
+  end.addEventListener('input', function() {
     if (parseInt(end.value, 10) < parseInt(start.value, 10)) {
       start.value = end.value;
-      // also update displayed start
     }
     calc();
   });
 
-  [speed, rate, cap].forEach(el => el.addEventListener('input', calc));
+  [speed, rate, cap].forEach(function(el) { el.addEventListener('input', calc); });
 
   calc();
 </script>
